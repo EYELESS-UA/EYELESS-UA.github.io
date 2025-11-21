@@ -1,6 +1,6 @@
 // ДАНІ ПРОЄКТІВ
 const projectsData = [
-  { "id": "Age-of-Wonders-4", "title": "Age of Wonders 4", "cover": "assets/Age-of-Wonders-4.webp", "logo": "assets/Age-of-Wonders-4_logo.webp", "status": "in-progress", "progress": 8, "progress_text": 8, "progress_textures": 0, "progress_fonts": 100, "desc": "Інтерфейс і субтитри українською.", "desc_en": "UI and subtitles in Ukrainian.", "cta": { "type": "disabled", "label": "Завантажити", "label_en": "Download", "url": "#" }, "videos": [] }
+  { "id": "Age-of-Wonders-4", "title": "Age of Wonders 4", "cover": "assets/Age_of_Wonders_4.webp", "logo": "assets/Age_of_Wonders_4_logo.webp", "status": "in-progress", "progress": 8, "progress_text": 8, "progress_textures": 0, "progress_fonts": 100, "desc": "Інтерфейс і субтитри українською.", "desc_en": "UI and subtitles in Ukrainian.", "cta": { "type": "disabled", "label": "Завантажити", "label_en": "Download", "url": "#" }, "videos": [] }
 ];
 
 // ДАНІ ДОБРОЧИНЦІВ
