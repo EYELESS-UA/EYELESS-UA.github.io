@@ -1,7 +1,7 @@
 // ДАНІ ПРОЄКТІВ
 const projectsData = [
   { "id": "AgeofWonders4", "title": "Age of Wonders 4", "cover": "assets/Age_of_Wonders_4.webp", "logo": "assets/Age_of_Wonders_4_logo.webp", "status": "in-progress", "progress": 97, "progress_text": 97, "progress_textures": 0, "progress_fonts": 100, "desc": "Інтерфейс і субтитри українською.", "desc_en": "UI and subtitles in Ukrainian.", "cta": { "type": "disabled", "label": "Завантажити", "label_en": "Download", "steam": "https://steamcommunity.com/sharedfiles/filedetails/?id=3391786639","url": "" }, "videos": [] },
-  { "id": "TheGuild3", "title": "The Guild 3", "cover": "assets/TheGuild3.webp", "logo": "assets/TheGuild3_Logo.webp", "status": "fundraising", "raised": 13246, "goal": 25000, "progress": 15, "progress_text": 15, "progress_textures": 0, "progress_fonts": 100, "desc": "Збір на українську локалізацію: інтерфейс, субтитри.", "desc_en": "Fundraising for Ukrainian localization: UI, subtitles.", "cta": { "type": "enable", "label": "Спонсорувати", "label_en": "Sponsor", "url": "https://donatello.to/LittleBitUA", "primary": true }, "steam": "https://store.steampowered.com/app/2131660/", "videos": ["https://www.youtube.com/watch?v=14EBz2UG1vI"] }
+    { "id": "TheGuild3", "title": "The Guild 3", "cover": "assets/TheGuild3.webp", "logo": "assets/TheGuild3_Logo.webp", "status": "early-access", "progress": 100, "progress_text": 100, "progress_textures": 50, "progress_fonts": 100, "desc": "Опис", "desc_en": "desc", "cta": { "type": "link", "label": "Завантажити", "label_en": "Download", "url": "https://store.steampowered.com/app/2131660/", "primary": true }, "steam": "https://store.steampowered.com/app/2131660/", "videos": [" # "] }
 ];
 
 // ДАНІ ДОБРОЧИНЦІВ
