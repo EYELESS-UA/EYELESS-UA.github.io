@@ -1,6 +1,6 @@
 // ДАНІ ПРОЄКТІВ
 const projectsData = [
-  { "id": "AgeofWonders4", "title": "Age of Wonders 4", "cover": "assets/Age_of_Wonders_4.webp", "logo": "assets/Age_of_Wonders_4_logo.webp", "status": "in-progress", "progress": 97, "progress_text": 97, "progress_textures": 0, "progress_fonts": 100, "desc": "Інтерфейс і субтитри українською.", "desc_en": "UI and subtitles in Ukrainian.", "cta": { "type": "disabled", "label": "Завантажити", "label_en": "Download", "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3391786639", "primary": true }, "videos": [] },
+  { "id": "AgeofWonders4", "title": "Age of Wonders 4", "cover": "assets/Age_of_Wonders_4.webp", "logo": "assets/Age_of_Wonders_4_logo.webp", "status": "in-progress", "progress": 97, "progress_text": 100, "progress_textures": 50, "progress_fonts": 100, "desc": "Інтерфейс і субтитри українською.", "desc_en": "UI and subtitles in Ukrainian.", "cta": { "type": "link", "label": "Завантажити", "label_en": "Download", "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3391786639", "primary": true }, "videos": [] },
   { "id": "TheGuild3", "title": "The Guild 3", "cover": "assets/TheGuild3.webp", "logo": "assets/TheGuild3_Logo.webp", "status": "early-access", "progress": 100, "progress_text": 100, "progress_textures": 50, "progress_fonts": 100, "desc": "Опис", "desc_en": "desc", "cta": { "type": "link", "label": "Завантажити", "label_en": "Download", "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3507960492", "primary": true }, "steam": "", "videos": [""] }
 ];
 
