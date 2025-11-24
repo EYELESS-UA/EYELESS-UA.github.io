@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_projects: "Проєкти", nav_support: "Підтримка", nav_contacts: "Контакти",
             hero_title: "Грайте українською —<br>відчувайте по-новому.",
             hero_lead: "Улюблені історії — українською, від серця.",
-            stat_projects: "ПРОЄКТІВ", stat_avg: "СЕР. ГОТОВНІСТЬ", stat_ea: "РАННІЙ ДОСТУП",
+            stat_projects: "ПРОЄКТІВ", stat_avg: "СЕР. ГОТОВНІСТЬ", stat_ea: "РАННІЙ ДОСТУП", st_planned: "Заплановано",
             search_ph: "Пошук всесвіту...", filter_all: "Всі", filter_in_progress: "В процесі", filter_fundraising: "Збір", filter_early_access: "Ранній доступ",
             contacts_title: "Контакти", contacts_text: "Слідкуйте за новинами у наших соцмережах:",
             support_title: "Підтримати нас", support_text: "Ваша підтримка допомагає нам створювати якісні українські локалізації улюблених ігор",
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_projects: "Projects", nav_support: "Support", nav_contacts: "Contacts",
             hero_title: "Play in Ukrainian —<br>feel it anew.",
             hero_lead: "Favorite stories — in Ukrainian, from the heart.",
-            stat_projects: "PROJECTS", stat_avg: "AVG. READINESS", stat_ea: "EARLY ACCESS",
+            stat_projects: "PROJECTS", stat_avg: "AVG. READINESS", stat_ea: "EARLY ACCESS", st_planned: "planned",
             search_ph: "Search universe...", filter_all: "All", filter_in_progress: "In Progress", filter_fundraising: "Fundraising", filter_early_access: "Early Access",
             contacts_title: "Contacts", contacts_text: "Follow our news on social media:",
             support_title: "Support Us", support_text: "Your support helps us create quality Ukrainian localizations of beloved games",
@@ -97,10 +97,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     displayProgress = Math.min(Math.round((p.raised/p.goal)*100), 100);
                 }
                 btnClass = 'btn-fund';
-            } else if(p.status === 'early-access') {
-                stClass = 'st-early'; stText = t.st_early; barColor = 'var(--neon-purple)';
+              } else if (p.status === 'early-access') {
+                stClass = 'st-early';
+                stText = t.st_early;
+                barColor = 'var(--neon-purple)';
                 btnClass = 'btn-early';
-            }
+
+              } else if (p.status === 'planned') {
+                  stClass = 'st-planned';
+                  stText = t.st_planned;
+                  btnClass = 'btn-disabled';
+              }
+
+               else if (p.status === 'done') {
+                stClass = 'st-done';
+                stText = t.st_done;
+                barColor = 'var(--neon-green)';
+                btnClass = 'btn-grad-blue';
+              }
+
+               else if (p.status === 'planned') {
+                stClass = 'st-planned';
+                stText = t.st_planned;
+                btnClass = 'btn-disabled';
+              }
 
             const btnLabel = (currentLang==='uk'? p.cta.label : (p.cta.label_en || p.cta.label));
             let btnHtml = `<a href="${p.cta.url}" target="_blank" class="btn-action ${btnClass}">${btnLabel}</a>`;
@@ -203,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const vBox = document.getElementById('m-video'); vBox.innerHTML = '';
         if(p.videos && p.videos.length) {
              const vID = p.videos[0].match(/v=([a-zA-Z0-9_-]+)/)?.[1];
-             if(vID) vBox.innerHTML = `<iframe width="100%" height="300" src="https://www.youtube.com/embed/${vID}" frameborder="0" allowfullscreen></iframe>`;
+             if(vID) vBox.innerHTML = `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${vID}" frameborder="0" allowfullscreen></iframe></div>`;
         }
 
         // Кнопки дій
