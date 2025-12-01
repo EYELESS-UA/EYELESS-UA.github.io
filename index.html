@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>«L Games Studio» — українські локалізації ігор</title>
+
+    <!-- Primary Meta Tags -->
+    <title>«L Games Studo» — українські локалізації ігор</title>
+    <meta name="title" content="L Games Studo» — українські локалізації ігор" />
+    <meta name="description" content="Українські локалізації відеоігор: Judgment, Yakuza, No More Heroes, Deadly Premonition, HOTEL BARCELONA, JoJo's Bizarre Adventure: All-Star Battle R, Dispatch та інших!" />
+
+    <!-- Cache control -->
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css?v=1.4.1">
 </head>
 <body>
 
     <div class="ambient-bg">
+        <canvas id="bg-canvas" aria-hidden="true"></canvas>
         <div class="blob b1"></div>
         <div class="blob b2"></div>
         <div class="blob b3"></div>
@@ -21,13 +30,33 @@
 
     <nav class="glass-nav">
         <div class="container nav-inner">
-            <div class="logo">L Games Studio</div>
+            <div class="logo">«L Games Studo</span>»</div>
             <div class="nav-items">
                 <a href="#projects" class="nav-link" data-i18n="nav_projects">Проєкти</a>
                 <a href="#support" class="nav-link" data-i18n="nav_support">Підтримка</a>
                 <a href="#contacts" class="nav-link" data-i18n="nav_contacts">Контакти</a>
-                <div class="lang-toggle">
-                    <span class="lang-opt active" onclick="setLang('uk')">UA</span> / <span class="lang-opt" onclick="setLang('en')">EN</span>
+                <div class="lang-toggle" role="tablist" aria-label="Language switcher">
+                    <button class="lang-opt active" onclick="setLang('uk')" aria-pressed="true" title="Українська">
+                        <!-- Ukrainian flag (simple) -->
+                        <svg class="flag flag-ukr" width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="20" height="14" fill="#0057b7" />
+                            <rect y="7" width="20" height="7" fill="#ffd700" />
+                        </svg>
+                        <span class="lang-label">UA</span>
+                    </button>
+                    <button class="lang-opt" onclick="setLang('en')" aria-pressed="false" title="English">
+                        <!-- UK flag (stylized simplified) -->
+                        <svg class="flag flag-gb" width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="20" height="14" fill="#012169" />
+                            <path d="M0 0 L20 14 M20 0 L0 14" stroke="#fff" stroke-width="3" />
+                            <path d="M0 0 L20 14 M20 0 L0 14" stroke="#C8102E" stroke-width="1.6" />
+                            <rect x="8.1" width="3.8" height="14" fill="#fff" />
+                            <rect y="5.1" width="20" height="3.8" fill="#fff" />
+                            <rect x="9.4" width="1.2" height="14" fill="#C8102E" />
+                            <rect y="6.4" width="20" height="1.2" fill="#C8102E" />
+                        </svg>
+                        <span class="lang-label">EN</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -43,7 +72,7 @@
                     <span class="stat-val" id="stat-count">0</span>
                     <span class="stat-lbl" data-i18n="stat_projects">ПРОЄКТІВ</span>
                 </div>
-                <div class="stat">
+                <div class="stat" data-label="avg">
                     <span class="stat-val" id="stat-avg">0%</span>
                     <span class="stat-lbl" data-i18n="stat_avg">СЕР. ГОТОВНІСТЬ</span>
                 </div>
@@ -61,7 +90,6 @@
             </div>
             <div class="filters">
                 <button class="f-btn active" data-filter="all" data-i18n="filter_all">Всі</button>
-                <button class="f-btn" data-filter="done">Готово</button>
                 <button class="f-btn" data-filter="in-progress" data-i18n="filter_in_progress">В процесі</button>
                 <button class="f-btn" data-filter="fundraising" data-i18n="filter_fundraising">Збір</button>
                 <button class="f-btn" data-filter="early-access" data-i18n="filter_early_access">Ранній доступ</button>
@@ -71,7 +99,63 @@
         <section id="projects" class="projects-grid"></section>
 
         <section id="contacts" class="contacts-section">
+            <div class="container">
+                <div class="contacts-header">
+                    <h2 data-i18n="contacts_title">Контакти</h2>
+                    <p data-i18n="contacts_text" class="contacts-lead">Слідкуйте за звітами та оновленнями у наших соціальних мережах</p>
+                </div>
 
+                <div class="contacts-grid">
+                    <a href="https://t.me/LittleBitUA" target="_blank" class="contact-card contact-telegram">
+                        <div class="contact-bg"></div>
+                        <div class="contact-gradient"></div>
+                        <div class="contact-content">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.1117 4.49449C23.4296 2.94472 21.9074 1.65683 20.4317 2.227L2.3425 9.21601C0.694517 9.85273 0.621087 12.1572 2.22518 12.8975L6.1645 14.7157L8.03849 21.2746C8.13583 21.6153 8.40618 21.8791 8.74917 21.968C9.09216 22.0568 9.45658 21.9576 9.70712 21.707L12.5938 18.8203L16.6375 21.8531C17.8113 22.7334 19.5019 22.0922 19.7967 20.6549L23.1117 4.49449Z"/>
+                                </svg>
+                            </div>
+                            <h3>Telegram</h3>
+                            <div class="contact-link">
+                                <span>Перейти</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="contact-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@UA_LittleBit/" target="_blank" class="contact-card contact-youtube">
+                        <div class="contact-bg"></div>
+                        <div class="contact-gradient"></div>
+                        <div class="contact-content">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                            </div>
+                            <h3>YouTube</h3>
+                            <div class="contact-link">
+                                <span>Перейти</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="contact-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <section id="support" class="support-section">
             <div class="container">
@@ -81,7 +165,7 @@
                 </div>
 
                 <div class="support-card-wrapper">
-                    <a href="https://donatello.to/LGamesStudio" target="_blank" class="support-donate-card">
+                    <a href="https://donatello.to/LittleBitUA" target="_blank" class="support-donate-card">
                         <div class="donate-bg"></div>
                         <div class="donate-gradient"></div>
                         <div class="donate-content">
@@ -104,6 +188,8 @@
                             <div class="particle"></div>
                         </div>
                     </a>
+
+                   
                 </div>
             </div>
         </section>
@@ -129,7 +215,8 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="data.js?v=1.4.1"></script>
+    <script src="news-data.js?v=1.4.1"></script>
+    <script src="script.js?v=1.4.1"></script>
 </body>
 </html>
