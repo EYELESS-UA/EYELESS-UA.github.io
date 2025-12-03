@@ -482,6 +482,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // МОДАЛЬНЕ ВІКНО (ВИПРАВЛЕНО)
     const modal = document.getElementById('modal');
+    let currentSlide = 0;
+    let totalSlides = 0;
+
+    const renderGallerySlider = (gallery) => {
+        const container = document.getElementById('m-gallery-slider');
+        const track = document.getElementById('m-gallery-track');
+        const dotsContainer = document.querySelector('.gallery-dots');
+        
+        if (!gallery || gallery.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+
+        container.style.display = 'block';
+        track.innerHTML = '';
+        dotsContainer.innerHTML = '';
+        currentSlide = 0;
+        totalSlides = gallery.length;
+
+        // Додаємо слайди
+        gallery.forEach((img, idx) => {
+            const slide = document.createElement('div');
+            slide.className = 'gallery-slide';
+            const imgEl = document.createElement('img');
+            imgEl.src = addImageVersion(img);
+            imgEl.alt = `Слайд ${idx + 1}`;
+            slide.appendChild(imgEl);
+            track.appendChild(slide);
+
+            // Додаємо крапку
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (idx === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goToSlide(idx));
+            dotsContainer.appendChild(dot);
+        });
+
+        updateSliderPosition();
+    };
+
+    const goToSlide = (index) => {
+        currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+        updateSliderPosition();
+    };
+
+    const nextSlide = () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSliderPosition();
+    };
+
+    const prevSlide = () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSliderPosition();
+    };
+
+    const updateSliderPosition = () => {
+        const track = document.getElementById('m-gallery-track');
+        if (track) {
+            track.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        // Оновляємо активну крапку
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === currentSlide);
+        });
+    };
+
     window.openModal = (id) => {
         const p = projectsData.find(x => x.id === id);
         if(!p) return;
@@ -489,6 +556,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('m-logo').src = addImageVersion(p.logo);
         document.getElementById('m-desc').innerHTML = currentLang==='uk'?p.desc: (p.desc_en || p.desc);
+
+        // Ініціалізуємо слайдер
+        renderGallerySlider(p.gallery || []);
 
         const sBox = document.getElementById('m-stats'); sBox.innerHTML = '';
 
@@ -546,9 +616,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Додаємо слухачі для кнопок навігації слайдера
+        setTimeout(() => {
+            const prevBtn = document.querySelector('.gallery-nav-prev');
+            const nextBtn = document.querySelector('.gallery-nav-next');
+            
+            if (prevBtn) prevBtn.removeEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.removeEventListener('click', nextSlide);
+            
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        }, 0);
     };
 
-    const closeM = () => { modal.classList.remove('active'); document.body.style.overflow = ''; document.getElementById('m-video').innerHTML=''; };
+    const closeM = () => { 
+        modal.classList.remove('active'); 
+        document.body.style.overflow = ''; 
+        document.getElementById('m-video').innerHTML='';
+        document.getElementById('m-gallery-slider').style.display = 'none';
+        currentSlide = 0;
+        totalSlides = 0;
+    };
     document.querySelector('.modal-close').addEventListener('click', closeM);
     modal.addEventListener('click', e => { if(e.target === modal) closeM(); });
 
