@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         uk: {
             nav_projects: "Проєкти", nav_support: "Підтримка", nav_contacts: "Контакти",
-            hero_title: "Грайте українською.<br>Підтримуйте своїх.",
-            hero_lead: "Ми створюємо фанатські й авторські локалізації, щоб ігри говорили вашою мовою.",
+            hero_title: "Граємо українською —<br>бо любимо ці історії всім серцем.",
+            hero_lead: "Перекладаємо разом те, що надихає й об’єднує фанатів по всій країні.",
             stat_projects: "ПРОЄКТІВ", stat_avg: "СЕР. ГОТОВНІСТЬ", stat_ea: "РАННІЙ ДОСТУП",
             search_ph: "Пошук всесвіту...", filter_all: "Всі", filter_in_progress: "В процесі", filter_fundraising: "Збір", filter_early_access: "Ранній доступ",
             news_title: "НОВИНИ",
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_projects: "Projects", nav_support: "Support", nav_contacts: "Contacts",
-            hero_title: "Play in Ukrainian —<br>feel it anew.",
-            hero_lead: "Favorite stories — in Ukrainian, from the heart.",
+            hero_title: "We play in Ukrainian —<br>because we truly love these stories.",
+            hero_lead: "We translate the worlds that inspire us and bring fans together across the country.",
             stat_projects: "PROJECTS", stat_avg: "AVG. READINESS", stat_ea: "EARLY ACCESS",
             search_ph: "Search universe...", filter_all: "All", filter_in_progress: "In Progress", filter_fundraising: "Fundraising", filter_early_access: "Early Access",
             news_title: "NEWS",
