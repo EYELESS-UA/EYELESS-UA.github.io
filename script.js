@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         uk: {
             nav_projects: "Проєкти", nav_support: "Підтримка", nav_contacts: "Контакти",
-            hero_title: "Грайте українською —<br>відчувайте по-новому.",
-            hero_lead: "Улюблені історії — українською, від серця.",
+            hero_title: "Грайте українською.<br>Підтримуйте своїх.",
+            hero_lead: "Ми створюємо фанатські й авторські локалізації, щоб ігри говорили вашою мовою.",
             stat_projects: "ПРОЄКТІВ", stat_avg: "СЕР. ГОТОВНІСТЬ", stat_ea: "РАННІЙ ДОСТУП",
             search_ph: "Пошук всесвіту...", filter_all: "Всі", filter_in_progress: "В процесі", filter_fundraising: "Збір", filter_early_access: "Ранній доступ",
             news_title: "НОВИНИ",
