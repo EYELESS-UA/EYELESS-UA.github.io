@@ -454,23 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGrid();
     }));
 
-    // Yakuza Easter Egg
-    const yakuzaSound = new Audio(addImageVersion('assets/sound.mp3'));
-    let yakuzaSoundPlayed = false;
 
-    document.getElementById('search').addEventListener('input', (e) => {
-        const searchValue = e.target.value.toLowerCase();
-
-        // Перевірка на "yakuza" або "якудза"
-        if ((searchValue.includes('yakuza') || searchValue.includes('якудза')) && !yakuzaSoundPlayed) {
-            yakuzaSound.play().catch(err => console.log('Audio play failed:', err));
-            yakuzaSoundPlayed = true;
-        } else if (!searchValue.includes('yakuza') && !searchValue.includes('якудза')) {
-            yakuzaSoundPlayed = false;
-        }
-
-        renderGrid();
-    });
 
     const bList = document.getElementById('benefactors-list');
     benefactorsList.forEach(b => {
