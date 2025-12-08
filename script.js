@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             lbl_readiness: "Готовність", lbl_raised: "Зібрано",
             btn_dl: "Завантажити", btn_details: "Деталі", lbl_episode: "Епізод",
             lbl_text: "Текст", lbl_textures: "Текстури", lbl_fonts: "Шрифти",
-            empty_projects: "Наразі нічого нема"
+            empty_projects: "Наразі нічого нема",
+            btn_load_more: "Завантажити ще"
         },
         en: {
             nav_projects: "Projects", nav_support: "Support", nav_contacts: "Contacts",
@@ -39,11 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
             lbl_readiness: "Readiness", lbl_raised: "Raised",
             btn_dl: "Download", btn_details: "Details", lbl_episode: "Episode",
             lbl_text: "Text", lbl_textures: "Textures", lbl_fonts: "Fonts",
-            empty_projects: "Nothing here yet"
+            empty_projects: "Nothing here yet",
+            btn_load_more: "Load More"
         }
     };
 
     let currentLang = 'uk';
+
+    // Пагінація
+    let itemsToShow = 9;
+    let itemsPerLoad = 3;
+    let currentlyShown = 0;
 
     // Дані імпортуються з data.js
 
@@ -282,9 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 180);
     };
 
-    function renderGrid() {
+    function renderGrid(append = false) {
         const term = document.getElementById('search').value.toLowerCase();
-        grid.innerHTML = '';
         const t = translations[currentLang];
 
         const filtered = projectsData.filter(p => {
@@ -293,16 +299,29 @@ document.addEventListener('DOMContentLoaded', () => {
             return matchCat && matchTerm;
         });
 
+        // Якщо не append - очищаємо сітку та скидаємо лічильник
+        if (!append) {
+            grid.innerHTML = '';
+            currentlyShown = 0;
+        }
+
         // Якщо немає елементів після фільтрації/пошуку — показуємо повідомлення
         if (!filtered.length) {
             grid.innerHTML = `<div class="empty-grid-message">${t.empty_projects || (currentLang==='uk' ? 'Наразі нічого нема' : 'Nothing here yet')}</div>`;
             const sd = document.getElementById('stat-done'); if(sd) sd.innerText = 0;
             const sp = document.getElementById('stat-progress'); if(sp) sp.innerText = 0;
             const spl = document.getElementById('stat-planned'); if(spl) spl.innerText = 0;
+            updateLoadMoreButton(filtered.length);
             return;
         }
 
-        filtered.forEach(p => {
+        // Визначаємо скільки елементів показати
+        const itemsToRender = append ? itemsPerLoad : itemsToShow;
+        const startIndex = append ? currentlyShown : 0;
+        const endIndex = Math.min(startIndex + itemsToRender, filtered.length);
+        const itemsToDisplay = filtered.slice(startIndex, endIndex);
+
+        itemsToDisplay.forEach(p => {
             let stClass = 'st-prog', stText = t.st_prog;
             let barColor = 'var(--neon-blue)';
             let metaLabel = t.lbl_readiness;
@@ -398,6 +417,9 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(card);
         });
 
+        // Оновлюємо лічильник
+        currentlyShown = endIndex;
+
         // Підрахунок статистики завжди з усього масиву projectsData (не залежить від фільтрів)
         const doneCount = projectsData.filter(p => p.status === 'done').length;
         const progressCount = projectsData.filter(p => p.status === 'in-progress' || p.status === 'early-access' || p.status === 'fundraising').length;
@@ -406,6 +428,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('stat-done').innerText = doneCount;
         document.getElementById('stat-progress').innerText = progressCount;
         document.getElementById('stat-planned').innerText = plannedCount;
+
+        // Оновлюємо стан кнопки "Завантажити ще"
+        updateLoadMoreButton(filtered.length);
+    }
+
+    // Функція оновлення стану кнопки "Завантажити ще"
+    function updateLoadMoreButton(totalFilteredItems) {
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        if (!loadMoreBtn) return;
+
+        if (currentlyShown >= totalFilteredItems) {
+            loadMoreBtn.style.display = 'none';
+        } else {
+            loadMoreBtn.style.display = 'inline-block';
+        }
     }
 
     document.querySelectorAll('.f-btn').forEach(b => b.addEventListener('click', () => {
@@ -414,6 +451,14 @@ document.addEventListener('DOMContentLoaded', () => {
         activeFilter = b.dataset.filter;
         renderGrid();
     }));
+
+    // Обробник кнопки "Завантажити ще"
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            renderGrid(true); // append = true
+        });
+    }
 
     // Рендеринг новин
     function renderNews() {
