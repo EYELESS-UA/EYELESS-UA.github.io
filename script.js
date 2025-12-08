@@ -277,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try { localStorage.setItem('lng', lang); } catch (e) { /* ignore */ }
 
             renderGrid();
+            renderNews();
             if (typeof initNewsSlider === 'function') initNewsSlider();
         }, 180);
     };
@@ -414,7 +415,57 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGrid();
     }));
 
+    // Рендеринг новин
+    function renderNews() {
+        const newsGrid = document.getElementById('news-grid');
+        if (!newsGrid || typeof newsData === 'undefined') return;
 
+        newsGrid.innerHTML = '';
+
+        // Сортуємо новини за датою (найновіші спочатку)
+        const sortedNews = [...newsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        sortedNews.forEach(news => {
+            const title = currentLang === 'uk' ? news.title : news.title_en;
+            const summary = currentLang === 'uk' ? news.summary : news.summary_en;
+            
+            // Форматуємо дату
+            const date = new Date(news.date);
+            const formattedDate = date.toLocaleDateString(currentLang === 'uk' ? 'uk-UA' : 'en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Визначаємо текст категорії
+            let categoryText = news.category;
+            if (currentLang === 'uk') {
+                if (news.category === 'progress') categoryText = 'Прогрес';
+                else if (news.category === 'release') categoryText = 'Реліз';
+                else if (news.category === 'announcement') categoryText = 'Оголошення';
+            } else {
+                if (news.category === 'progress') categoryText = 'Progress';
+                else if (news.category === 'release') categoryText = 'Release';
+                else if (news.category === 'announcement') categoryText = 'Announcement';
+            }
+
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
+            newsItem.innerHTML = `
+                <div class="news-date">
+                    <span class="news-category ${news.category}">${categoryText}</span>
+                    <span>• ${formattedDate}</span>
+                </div>
+                <h3 class="news-title">${title}</h3>
+                <p class="news-summary">${summary}</p>
+            `;
+
+            newsGrid.appendChild(newsItem);
+        });
+    }
+
+    // Викликаємо рендеринг новин при завантаженні
+    renderNews();
 
     const bList = document.getElementById('benefactors-list');
     benefactorsList.forEach(b => {
