@@ -739,10 +739,25 @@ body {
 #search {
     width: 100%; background: var(--glass); border: 1px solid var(--border);
     padding: 12px 20px 12px 45px; border-radius: 12px; color: white;
-    font-family: var(--font-body); transition: 0.3s; outline: none;
+    font-family: var(--font-body); transition: all 0.3s ease; outline: none;
 }
-#search:focus { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); }
-.search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
+#search:focus { 
+    border-color: var(--neon-blue); 
+    box-shadow: 0 0 20px rgba(102, 192, 244, 0.2);
+    background: rgba(102, 192, 244, 0.05);
+}
+#search::placeholder {
+    color: var(--text-muted);
+    transition: opacity 0.3s ease;
+}
+#search:focus::placeholder {
+    opacity: 0.5;
+}
+.search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: 0.5; transition: all 0.3s ease; }
+#search:focus + .search-icon {
+    opacity: 0.8;
+    color: var(--neon-blue);
+}
 
 .filters { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
 .f-btn {
@@ -1326,6 +1341,61 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.gallery-slide img:hover {
+    transform: scale(1.02);
+}
+
+/* Fullscreen Image Viewer */
+.fullscreen-viewer {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 3000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    cursor: zoom-out;
+}
+
+.fullscreen-viewer.active {
+    display: flex;
+}
+
+.fullscreen-viewer img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 3001;
+}
+
+.fullscreen-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
 }
 
 .gallery-nav {
@@ -1333,26 +1403,30 @@ body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    width: 44px;
-    height: 44px;
-    border: none;
-    background: rgba(102, 192, 244, 0.8);
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--border);
+    background: var(--glass);
+    backdrop-filter: blur(10px);
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    font-weight: bold;
+    transition: all 0.3s ease;
+    font-weight: 600;
     line-height: 1;
     padding: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-nav:hover {
-    background: rgba(102, 192, 244, 1);
-    transform: translateY(-50%) scale(1.05);
+    background: rgba(102, 192, 244, 0.2);
+    border-color: var(--neon-blue);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 192, 244, 0.4);
 }
 
 .gallery-nav:active {
@@ -1369,30 +1443,46 @@ body {
 
 .gallery-dots {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
-    margin-top: 12px;
+    margin-top: 15px;
     flex-wrap: wrap;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--glass);
     cursor: pointer;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.dot::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.3s ease;
 }
 
 .dot.active {
     background: var(--neon-blue);
-    box-shadow: 0 0 8px rgba(102, 192, 244, 0.6);
     border-color: var(--neon-blue);
+    box-shadow: 0 0 12px rgba(102, 192, 244, 0.8);
+}
+
+.dot.active::before {
+    background: rgba(102, 192, 244, 0.2);
 }
 
 .dot:hover {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(102, 192, 244, 0.3);
+    border-color: rgba(102, 192, 244, 0.5);
+    transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
