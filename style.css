@@ -682,10 +682,14 @@ body {
 .hero h1 {
     font-family: var(--font-head); font-size: clamp(2.2rem, 5vw, 4rem);
     line-height: 1.1; font-weight: 700; margin-bottom: 20px;
-    background: linear-gradient(to right, #fff, #a5b4fc);
+    background: linear-gradient(120deg, #fff 0%, #a5b4fc 30%, #818cf8 50%, #a5b4fc 70%, #fff 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
     opacity: 0;
-    animation: heroFadeSlide 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+    animation: heroFadeSlide 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards,
+               gradientShift 4s ease-in-out infinite;
+    filter: blur(0px);
 }
 .hero-lead {
     font-size: 1.1rem; color: var(--text-muted); margin: 0 auto 40px; max-width: 600px;
@@ -707,10 +711,21 @@ body {
     from {
         opacity: 0;
         transform: translateY(30px);
+        filter: blur(10px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0px);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
 }
 .stat { flex: 1; padding: 0 25px; text-align: center; border-right: 1px solid var(--border); min-width: 120px; }
