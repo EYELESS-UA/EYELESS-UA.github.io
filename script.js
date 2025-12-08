@@ -460,6 +460,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Обробник пошуку в реальному часі
+    const searchInput = document.getElementById('search');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            renderGrid(); // Оновлюємо список при кожному введенні
+        });
+    }
+
     // Рендеринг новин
     function renderNews() {
         const newsGrid = document.getElementById('news-grid');
@@ -685,6 +693,51 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     document.querySelector('.modal-close').addEventListener('click', closeM);
     modal.addEventListener('click', e => { if(e.target === modal) closeM(); });
+
+    // Fullscreen Image Viewer
+    const fullscreenViewer = document.getElementById('fullscreen-viewer');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    const fullscreenClose = document.querySelector('.fullscreen-close');
+
+    function openFullscreenImage(imageSrc) {
+        fullscreenImage.src = imageSrc;
+        fullscreenViewer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFullscreenImage() {
+        fullscreenViewer.classList.remove('active');
+        document.body.style.overflow = '';
+        fullscreenImage.src = '';
+    }
+
+    // Закриття повноекранного перегляду
+    if (fullscreenClose) {
+        fullscreenClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeFullscreenImage();
+        });
+    }
+
+    if (fullscreenViewer) {
+        fullscreenViewer.addEventListener('click', closeFullscreenImage);
+        fullscreenImage.addEventListener('click', (e) => e.stopPropagation());
+    }
+
+    // Закриття на Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeFullscreenImage();
+        }
+    });
+
+    // Делегування подій для зображень у галереї
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.gallery-slide img')) {
+            const img = e.target;
+            openFullscreenImage(img.src);
+        }
+    });
 
     // Apply saved language preference (if any) — this will call renderGrid()
     try {
