@@ -763,7 +763,38 @@ body {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px; padding-bottom: 80px;
+    gap: 30px; padding-bottom: 40px;
+}
+
+/* Load More Button Container */
+.load-more-container {
+    text-align: center;
+    padding: 20px 0 60px 0;
+}
+
+.btn-load-more {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 40px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.btn-load-more:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--neon-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 192, 244, 0.2);
+}
+
+.btn-load-more:active {
+    transform: translateY(0);
 }
 
 /* Message shown when there are no projects to display */
