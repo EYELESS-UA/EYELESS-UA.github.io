@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_projects: "Проєкти", nav_support: "Підтримка", nav_contacts: "Контакти",
             hero_title: "Граємо українською —<br>бо любимо ці історії всім серцем.",
             hero_lead: "Перекладаємо разом те, що надихає й об’єднує фанатів по всій країні.",
-            stat_projects: "ПРОЄКТІВ", stat_avg: "СЕР. ГОТОВНІСТЬ", stat_ea: "РАННІЙ ДОСТУП",
-            search_ph: "Пошук всесвіту...", filter_all: "Всі", filter_in_progress: "В процесі", filter_fundraising: "Збір", filter_early_access: "Ранній доступ",
+            stat_done: "ГОТОВО", stat_progress: "В ПРОЦЕСІ", stat_planned: "ЗАПЛАНОВАНО",
+            search_ph: "Пошук всесвіту...", filter_all: "Всі", filter_done: "Готово", filter_in_progress: "В процесі",
             news_title: "НОВИНИ",
             contacts_title: "Контакти", contacts_text: "Слідкуйте за новинами у наших соцмережах:",
             support_title: "Підтримати нас", support_text: "Ваша підтримка допомагає нам створювати якісні українські локалізації улюблених ігор",
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_projects: "Projects", nav_support: "Support", nav_contacts: "Contacts",
             hero_title: "We play in Ukrainian —<br>because we truly love these stories.",
             hero_lead: "We translate the worlds that inspire us and bring fans together across the country.",
-            stat_projects: "PROJECTS", stat_avg: "AVG. READINESS", stat_ea: "EARLY ACCESS",
-            search_ph: "Search universe...", filter_all: "All", filter_in_progress: "In Progress", filter_fundraising: "Fundraising", filter_early_access: "Early Access",
+            stat_done: "DONE", stat_progress: "IN PROGRESS", stat_planned: "PLANNED",
+            search_ph: "Search universe...", filter_all: "All", filter_done: "Done", filter_in_progress: "In Progress",
             news_title: "NEWS",
             contacts_title: "Contacts", contacts_text: "Follow our news on social media:",
             support_title: "Support Us", support_text: "Your support helps us create quality Ukrainian localizations of beloved games",
@@ -295,9 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Якщо немає елементів після фільтрації/пошуку — показуємо повідомлення
         if (!filtered.length) {
             grid.innerHTML = `<div class="empty-grid-message">${t.empty_projects || (currentLang==='uk' ? 'Наразі нічого нема' : 'Nothing here yet')}</div>`;
-            const sc = document.getElementById('stat-count'); if(sc) sc.innerText = 0;
-            const se = document.getElementById('stat-ea'); if(se) se.innerText = 0;
-            const sa = document.getElementById('stat-avg'); if(sa) sa.innerText = '0%';
+            const sd = document.getElementById('stat-done'); if(sd) sd.innerText = 0;
+            const sp = document.getElementById('stat-progress'); if(sp) sp.innerText = 0;
+            const spl = document.getElementById('stat-planned'); if(spl) spl.innerText = 0;
             return;
         }
 
@@ -397,54 +397,14 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(card);
         });
 
-        document.getElementById('stat-count').innerText = filtered.length;
-        document.getElementById('stat-ea').innerText = filtered.filter(p => p.status === 'early-access').length;
+        // Підрахунок статистики завжди з усього масиву projectsData (не залежить від фільтрів)
+        const doneCount = projectsData.filter(p => p.status === 'done').length;
+        const progressCount = projectsData.filter(p => p.status === 'in-progress' || p.status === 'early-access' || p.status === 'fundraising').length;
+        const plannedCount = projectsData.filter(p => p.status === 'planned').length;
 
-        // Розрахунок середньої статистики залежно від фільтру
-        let avg = 0;
-        const statAvgLabel = document.querySelector('.stat[data-label="avg"] .stat-lbl');
-
-        if (activeFilter === 'fundraising') {
-            // Для збору коштів рахуємо середній прогрес збору
-            const fundraising = filtered.filter(p => p.status === 'fundraising' && p.goal);
-            if (fundraising.length) {
-                const totalProgress = fundraising.reduce((sum, p) => {
-                    return sum + Math.min(Math.round((p.raised / p.goal) * 100), 100);
-                }, 0);
-                avg = Math.round(totalProgress / fundraising.length);
-            }
-            // Змінюємо текст на "Зібрано"
-            if (statAvgLabel) {
-                statAvgLabel.setAttribute('data-i18n', 'stat_fundraising');
-                statAvgLabel.innerText = currentLang === 'uk' ? 'ЗІБРАНО' : 'FUNDRAISED';
-            }
-        } else {
-            // Для інших фільтрів рахуємо середню готовність з автоматичним розрахунком
-            const active = filtered.filter(p => p.status !== 'fundraising');
-            if (active.length) {
-                const totalProgress = active.reduce((sum, p) => {
-                    // Автоматичний розрахунок прогресу для кожного проєкту
-                    let projectProgress = p.progress;
-                    if (p.progress_text !== undefined || p.progress_textures !== undefined || p.progress_fonts !== undefined) {
-                        const components = [];
-                        if (p.progress_text !== undefined) components.push(p.progress_text);
-                        if (p.progress_textures !== undefined) components.push(p.progress_textures);
-                        if (p.progress_fonts !== undefined) components.push(p.progress_fonts);
-                        if (components.length > 0) {
-                            projectProgress = Math.round(components.reduce((a, b) => a + b, 0) / components.length);
-                        }
-                    }
-                    return sum + (projectProgress || 0);
-                }, 0);
-                avg = Math.round(totalProgress / active.length);
-            }
-            // Повертаємо текст на "СЕР. ГОТОВНІСТЬ"
-            if (statAvgLabel) {
-                statAvgLabel.setAttribute('data-i18n', 'stat_avg');
-                statAvgLabel.innerText = currentLang === 'uk' ? 'СЕР. ГОТОВНІСТЬ' : 'AVG. READINESS';
-            }
-        }
-        document.getElementById('stat-avg').innerText = avg + "%";
+        document.getElementById('stat-done').innerText = doneCount;
+        document.getElementById('stat-progress').innerText = progressCount;
+        document.getElementById('stat-planned').innerText = plannedCount;
     }
 
     document.querySelectorAll('.f-btn').forEach(b => b.addEventListener('click', () => {
