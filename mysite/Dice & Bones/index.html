@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Beyond - Dungeons & Dragons</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/Dice & Bones Logo.webp" alt="D&D Logo">
+            </div>
+            <nav class="nav">
+                <a href="#">Collections</a>
+
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search Everything...">
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn" id="langBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM8.5 16.5c-3.59-.5-6.5-3.41-7-7h3.5v7zm0-8.5H1.5c.5-3.59 3.41-6.5 7-7v7zm1 8.5v-7h3.5c-.5 3.59-3.41 6.5-7 7zm0-16.5c3.59.5 6.5 3.41 7 7H9.5V0z"/>
+                    </svg>
+                    <span id="currentLang">UA</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" class="arrow">
+                        <path d="M6 9L1 4h10z"/>
+                    </svg>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <a href="#" data-lang="ua">🇺🇦 Українська</a>
+                    <a href="#" data-lang="en">🇬🇧 English</a>
+                    <a href="#" data-lang="pl">🇵🇱 Polski</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-main">
+                <img src="assets/Eberron.webp" alt="Eberron">
+                <div class="hero-overlay">
+                    <h2>FORGE WONDERS IN EBERRON<br>TODAY WITH EARLY ACCESS</h2>
+                    <button class="btn-primary">BUY NOW</button>
+                </div>
+            </div>
+            <div class="hero-side">
+                <div class="hero-card">
+                    <img src="assets/Vampire.webp" alt="Vampire">
+                    <div class="card-overlay">
+                        <span class="badge">NEW</span>
+                        <p>Unleash your inner vampire with Astarion's Book of Hungers</p>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <img src="assets/Holiday.webp" alt="Holiday">
+                    <div class="card-overlay">
+                        <span class="badge">NEW</span>
+                        <p>Get festive with a magic-ho-ho Holiday-themed adventure!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="action-card">
+                <img src="assets/mask.png" alt="Create">
+                <div>
+                    <h4>CREATE A</h4>
+                    <p>CHARACTER</p>
+                </div>
+            </div>
+            <div class="action-card">
+                <img src="assets/bowl.png" alt="Browse">
+                <div>
+                    <h4>BROWSE THE</h4>
+                    <p>MARKETPLACE</p>
+                </div>
+            </div>
+            <div class="action-card">
+                <img src="assets/dice.png" alt="Subscribe">
+                <div>
+                    <h4>SUBSCRIPTION</h4>
+                    <p>BENEFITS</p>
+                </div>
+            </div>
+            <div class="action-card">
+                <img src="assets/map.png" alt="Maps">
+                <div>
+                    <h4>DISCOVER MAPS</h4>
+                    <p>Maps VTT</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Article -->
+        <section class="featured-article">
+            <div class="article-content">
+                <h2>D&D Beyond 2025 Wrap-Up</h2>
+                <p class="article-meta"><span class="date">20 hours ago</span> | <span class="author">D&D Beyond</span></p>
+                <p class="article-text">D&D Beyond is built by a passionate team of designers, engineers, and product managers with jobs that sometimes draw blood! Relax and give the lore that's on the site. We're clear the year in review and a look ahead for D&D Beyond, straight from the development team of players and Dungeon Masters.</p>
+                <button class="btn-secondary">Read Article</button>
+            </div>
+            <div class="article-image">
+                <img src="assets/table.jpg" alt="D&D 2025">
+            </div>
+        </section>
+
+        <!-- Article Grid -->
+        <section class="articles-grid" id="articlesGrid">
+            <!-- Articles will be dynamically loaded from data.js -->
+        </section>
+
+        <!-- See All Posts Button -->
+        <div class="see-all-container">
+            <button class="btn-primary">SEE ALL POSTS</button>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/Dice & Bones Logo.webp" alt="Logo">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>SUPPORT</h4>
+                    <a href="#">Help Portal</a>
+                    <a href="#">Submit a Ticket</a>
+                    <a href="#">System Status</a>
+                    <a href="#">Do Not Sell or Share My Personal Data</a>
+                    <a href="#">Your Privacy Choices</a>
+                    <a href="#">Cookie Notice</a>
+                    <a href="#">System Reference Document (SRD)</a>
+                </div>
+                <div class="footer-column">
+                    <h4>ABOUT</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Wizards of the Coast</a>
+                </div>
+                <div class="footer-column">
+                    <h4>FIND US ON SOCIAL MEDIA</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">TikTok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Wizards of the Coast LLC. All Rights Reserved.</p>
+            <p>Dungeons & Dragons, D&D, their respective logos, and all Wizards of the Coast products are trademarks of Wizards of the Coast LLC.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load articles from data.js
+        function loadArticles() {
+            const articlesGrid = document.getElementById('articlesGrid');
+            
+            articlesData.forEach(article => {
+                const articleCard = document.createElement('article');
+                articleCard.className = 'article-card';
+                
+                articleCard.innerHTML = `
+                    <img src="${article.image}" alt="${article.title}">
+                    <div class="article-info">
+                        <span class="category">${article.category}</span>
+                        <h3>${article.title}</h3>
+                        <p>${article.description}</p>
+                        <a href="${article.link}" class="read-more">Read More</a>
+                    </div>
+                `;
+                
+                articlesGrid.appendChild(articleCard);
+            });
+        }
+
+        // Load articles when page is ready
+        document.addEventListener('DOMContentLoaded', loadArticles);
+
+        // Language selector functionality
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLang = document.getElementById('currentLang');
+
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+            langBtn.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            if (langDropdown.classList.contains('show')) {
+                langDropdown.classList.remove('show');
+                langBtn.classList.remove('active');
+            }
+        });
+
+        // Language selection
+        const langLinks = langDropdown.querySelectorAll('a');
+        langLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang').toUpperCase();
+                currentLang.textContent = lang;
+                langDropdown.classList.remove('show');
+                langBtn.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -164,7 +164,9 @@ const projectsData = [
 
 // ДАНІ ДОБРОЧИНЦІВ
 const benefactorsList = [
-   
+
+
+  
 ];
 // ДАНІ НОВИН
 const newsData = [
@@ -219,3 +221,10 @@ const newsData = [
 //   "project_id": null
 // }
 ];
+
+    // Дані сайтів користувача Команда="open_my_sites"
+    const mySites = [
+        { name: "Moonscars Wiki", icon: "🌙", url: "mysite/Moonscars Wiki/index.html" },
+        { name: "Dice & Bones", icon: "🌙", url: "mysite/Dice & Bones/index.html" },
+        { name: "GitHub", icon: "💻", url: "https://github.com/EYELESS-UA" }
+    ];

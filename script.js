@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btn_dl: "Завантажити", btn_details: "Деталі", lbl_episode: "Епізод",
             lbl_text: "Текст", lbl_textures: "Текстури", lbl_fonts: "Шрифти",
             empty_projects: "Наразі нічого нема",
-            btn_load_more: "Завантажити ще"
+            btn_load_more: "Завантажити ще",
+            sites_menu_title: "Оберіть сайт",
+            sites_menu_close: "Закрити"
         },
         en: {
             nav_projects: "Projects", nav_support: "Support", nav_contacts: "Contacts",
@@ -41,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btn_dl: "Download", btn_details: "Details", lbl_episode: "Episode",
             lbl_text: "Text", lbl_textures: "Textures", lbl_fonts: "Fonts",
             empty_projects: "Nothing here yet",
-            btn_load_more: "Load More"
+            btn_load_more: "Load More",
+            sites_menu_title: "Choose a Site",
+            sites_menu_close: "Close"
         }
     };
 
@@ -460,13 +464,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Обробник пошуку в реальному часі
+    // Обробник пошуку в реальному часі з підтримкою команд
     const searchInput = document.getElementById('search');
     if (searchInput) {
-        searchInput.addEventListener('input', () => {
+        searchInput.addEventListener('input', (e) => {
+            const value = e.target.value.trim();
+            
+            // Перевірка на спеціальну команду
+            if (value === 'open_my_sites') {
+                openSitesMenu();
+                return;
+            }
+            
             renderGrid(); // Оновлюємо список при кожному введенні
         });
     }
+
+    // Функція відкриття меню сайтів
+    function openSitesMenu() {
+        const sitesMenu = document.getElementById('sites-menu');
+        if (!sitesMenu) return;
+        
+        sitesMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Функція закриття меню сайтів
+    function closeSitesMenu() {
+        const sitesMenu = document.getElementById('sites-menu');
+        if (!sitesMenu) return;
+        
+        sitesMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Очищаємо поле пошуку
+        const searchInput = document.getElementById('search');
+        if (searchInput) searchInput.value = '';
+    }
+
+    // Функція відкриття обраного сайту
+    function openSite(url) {
+        closeSitesMenu();
+        window.open(url, '_blank');
+    }
+
+    // Рендеринг меню сайтів
+    function renderSitesMenu() {
+        const sitesGrid = document.getElementById('sites-grid');
+        if (!sitesGrid) return;
+        
+        sitesGrid.innerHTML = mySites.map(site => `
+            <div class="site-card" onclick="openSite('${site.url}')">
+                <div class="site-icon">${site.icon}</div>
+                <div class="site-name">${site.name}</div>
+            </div>
+        `).join('');
+    }
+
+    // Глобальні функції для onclick
+    window.openSite = openSite;
+    window.closeSitesMenu = closeSitesMenu;
 
     // Рендеринг новин
     function renderNews() {
@@ -1038,4 +1095,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--gradient-angle', 0);
         });
     });
+
+    // Рендеримо меню сайтів при завантаженні
+    renderSitesMenu();
 });

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Moonscars — Wiki</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">
+        <a href="#home" class="home-link" aria-label="Перейти на головну">
+          <img src="assets/Moon-normal.webp" alt="Moonscars" class="site-logo">
+          <span class="site-title-text">Moonscars Wiki</span>
+        </a>
+      </h1>
+      <div class="nav-search">
+        <nav class="main-nav" aria-label="Головна навігація">
+          <a href="#home" data-route="home" class="nav-link">Головна</a>
+          <a href="#characters" data-route="characters" class="nav-link">Персонажі</a>
+          <a href="#bosses" data-route="bosses" class="nav-link">Боси</a>
+          <a href="#locations" data-route="locations" class="nav-link">Локації</a>
+          <a href="#weapons" data-route="weapons" class="nav-link">Зброя</a>
+          <a href="#mechanics" data-route="mechanics" class="nav-link">Механіки</a>
+          <a href="#achievements" data-route="achievements" class="nav-link">Досягнення</a>
+        </nav>
+
+        <div class="search-wrapper" role="search">
+          <input id="search-input" class="search-input" type="search" placeholder="Пошук..." aria-label="Пошук по вікі">
+          <ul id="search-results" class="search-results" role="listbox" aria-label="Результати пошуку"></ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="container main-content" role="main">
+    <!-- Content is rendered by script.js -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Moonscars wiki — створено для демонстрації</small>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
