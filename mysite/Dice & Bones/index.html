@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Beyond - Dungeons & Dragons</title>
+    <title>Dice & Bones - Dungeons & Dragons</title>
     <link rel="stylesheet" href="styles.css">
     <script src="data.js" defer></script>
 </head>
@@ -14,11 +14,15 @@
                 <img src="assets/Dice & Bones Logo.webp" alt="D&D Logo">
             </div>
             <nav class="nav">
-                <a href="#">Collections</a>
-
+                <a href="#" id="collectionsLink">Collections</a>
             </nav>
             <div class="search-bar">
-                <input type="text" placeholder="Search Everything...">
+                <input type="text" id="searchInput" placeholder="Search Everything...">
+                <button id="searchBtn" class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/>
+                    </svg>
+                </button>
             </div>
             <div class="language-selector">
                 <button class="lang-btn" id="langBtn">
@@ -45,23 +49,23 @@
             <div class="hero-main">
                 <img src="assets/Eberron.webp" alt="Eberron">
                 <div class="hero-overlay">
-                    <h2>FORGE WONDERS IN EBERRON<br>TODAY WITH EARLY ACCESS</h2>
-                    <button class="btn-primary">BUY NOW</button>
+                    <h2 id="heroTitle">FORGE WONDERS IN EBERRON<br>TODAY WITH EARLY ACCESS</h2>
+                    <button class="btn-primary" id="buyNowBtn">BUY NOW</button>
                 </div>
             </div>
             <div class="hero-side">
                 <div class="hero-card">
                     <img src="assets/Vampire.webp" alt="Vampire">
                     <div class="card-overlay">
-                        <span class="badge">NEW</span>
-                        <p>Unleash your inner vampire with Astarion's Book of Hungers</p>
+                        <span class="badge" id="newBadge1">NEW</span>
+                        <p id="vampireDesc">Unleash your inner vampire with Astarion's Book of Hungers</p>
                     </div>
                 </div>
                 <div class="hero-card">
                     <img src="assets/Holiday.webp" alt="Holiday">
                     <div class="card-overlay">
-                        <span class="badge">NEW</span>
-                        <p>Get festive with a magic-ho-ho Holiday-themed adventure!</p>
+                        <span class="badge" id="newBadge2">NEW</span>
+                        <p id="holidayDesc">Get festive with a magic-ho-ho Holiday-themed adventure!</p>
                     </div>
                 </div>
             </div>
@@ -72,29 +76,29 @@
             <div class="action-card">
                 <img src="assets/mask.png" alt="Create">
                 <div>
-                    <h4>CREATE A</h4>
-                    <p>CHARACTER</p>
+                    <h4 id="createCharacterTitle">CREATE A</h4>
+                    <p id="characterText">CHARACTER</p>
                 </div>
             </div>
             <div class="action-card">
                 <img src="assets/bowl.png" alt="Browse">
                 <div>
-                    <h4>BROWSE THE</h4>
-                    <p>MARKETPLACE</p>
+                    <h4 id="browseMarketTitle">BROWSE THE</h4>
+                    <p id="marketplaceText">MARKETPLACE</p>
                 </div>
             </div>
             <div class="action-card">
                 <img src="assets/dice.png" alt="Subscribe">
                 <div>
-                    <h4>SUBSCRIPTION</h4>
-                    <p>BENEFITS</p>
+                    <h4 id="subscriptionTitle">SUBSCRIPTION</h4>
+                    <p id="benefitsText">BENEFITS</p>
                 </div>
             </div>
             <div class="action-card">
                 <img src="assets/map.png" alt="Maps">
                 <div>
-                    <h4>DISCOVER MAPS</h4>
-                    <p>Maps VTT</p>
+                    <h4 id="discoverMapsTitle">DISCOVER MAPS</h4>
+                    <p id="mapsVTTText">Maps VTT</p>
                 </div>
             </div>
         </section>
@@ -102,10 +106,10 @@
         <!-- Featured Article -->
         <section class="featured-article">
             <div class="article-content">
-                <h2>D&D Beyond 2025 Wrap-Up</h2>
-                <p class="article-meta"><span class="date">20 hours ago</span> | <span class="author">D&D Beyond</span></p>
-                <p class="article-text">D&D Beyond is built by a passionate team of designers, engineers, and product managers with jobs that sometimes draw blood! Relax and give the lore that's on the site. We're clear the year in review and a look ahead for D&D Beyond, straight from the development team of players and Dungeon Masters.</p>
-                <button class="btn-secondary">Read Article</button>
+                <h2 id="wrapUpTitle">Dice & Bones 2025 Wrap-Up</h2>
+                <p class="article-meta"><span class="date">20 hours ago</span> | <span class="author">Dice & Bones</span></p>
+                <p class="article-text" id="wrapUpText">Dice & Bones is built by a passionate team of designers, engineers, and product managers with jobs that sometimes draw blood! Relax and give the lore that's on the site. We're clear the year in review and a look ahead for Dice & Bones, straight from the development team of players and Dungeon Masters.</p>
+                <button class="btn-secondary" id="readArticleBtn">Read Article</button>
             </div>
             <div class="article-image">
                 <img src="assets/table.jpg" alt="D&D 2025">
@@ -119,7 +123,7 @@
 
         <!-- See All Posts Button -->
         <div class="see-all-container">
-            <button class="btn-primary">SEE ALL POSTS</button>
+            <button class="btn-primary" id="seeAllPostsBtn">SEE ALL POSTS</button>
         </div>
 
     </main>
@@ -131,7 +135,7 @@
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>SUPPORT</h4>
+                    <h4 id="supportTitle">SUPPORT</h4>
                     <a href="#">Help Portal</a>
                     <a href="#">Submit a Ticket</a>
                     <a href="#">System Status</a>
@@ -141,13 +145,13 @@
                     <a href="#">System Reference Document (SRD)</a>
                 </div>
                 <div class="footer-column">
-                    <h4>ABOUT</h4>
+                    <h4 id="aboutTitle">ABOUT</h4>
                     <a href="#">About Us</a>
                     <a href="#">Careers</a>
                     <a href="#">Wizards of the Coast</a>
                 </div>
                 <div class="footer-column">
-                    <h4>FIND US ON SOCIAL MEDIA</h4>
+                    <h4 id="socialTitle">FIND US ON SOCIAL MEDIA</h4>
                     <div class="social-links">
                         <a href="#">Instagram</a>
                         <a href="#">YouTube</a>
@@ -166,36 +170,224 @@
         </div>
     </footer>
 
+    <!-- Article Modal -->
+    <div id="articleModal" class="article-modal">
+        <div class="article-modal-content">
+            <span class="close-article-modal" id="closeArticleModal">&times;</span>
+            <img id="modalArticleImage" src="" alt="" class="modal-article-image">
+            <span id="modalArticleCategory" class="modal-article-category"></span>
+            <h2 id="modalArticleTitle"></h2>
+            <div id="modalArticleContent" class="modal-article-text"></div>
+        </div>
+    </div>
+
     <script>
-        // Load articles from data.js
-        function loadArticles() {
-            const articlesGrid = document.getElementById('articlesGrid');
+        // Current language and search state
+        let allArticles = [];
+        let filteredArticles = [];
+        let isSearching = false;
+
+        // Update page text based on language
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
             
-            articlesData.forEach(article => {
+            const t = translations[lang];
+            
+            // Update navigation and search
+            document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+            document.getElementById('collectionsLink').textContent = t.collections;
+            
+            // Update hero section
+            document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            document.getElementById('buyNowBtn').textContent = t.buyNow;
+            document.getElementById('newBadge1').textContent = t.newBadge;
+            document.getElementById('newBadge2').textContent = t.newBadge;
+            document.getElementById('vampireDesc').textContent = t.vampireDesc;
+            document.getElementById('holidayDesc').textContent = t.holidayDesc;
+            
+            // Update quick actions
+            document.getElementById('createCharacterTitle').textContent = t.createCharacter;
+            document.getElementById('characterText').textContent = t.character;
+            document.getElementById('browseMarketTitle').textContent = t.browseMarket;
+            document.getElementById('marketplaceText').textContent = t.marketplace;
+            document.getElementById('subscriptionTitle').textContent = t.subscription;
+            document.getElementById('benefitsText').textContent = t.benefits;
+            document.getElementById('discoverMapsTitle').textContent = t.discoverMaps;
+            document.getElementById('mapsVTTText').textContent = t.mapsVTT;
+            
+            // Update featured article
+            document.getElementById('wrapUpTitle').textContent = t.wrapUpTitle;
+            document.getElementById('wrapUpText').textContent = t.wrapUpText;
+            document.getElementById('readArticleBtn').textContent = t.readArticle;
+            document.getElementById('seeAllPostsBtn').textContent = t.seeAllPosts;
+            
+            // Update footer
+            document.getElementById('supportTitle').textContent = t.supportTitle;
+            document.getElementById('aboutTitle').textContent = t.aboutTitle;
+            document.getElementById('socialTitle').textContent = t.socialTitle;
+            
+            // Reload articles with new language
+            loadArticles();
+        }
+
+        // Load articles from data.js
+        function loadArticles(searchQuery = '') {
+            const articlesGrid = document.getElementById('articlesGrid');
+            const seeAllBtn = document.getElementById('seeAllPostsBtn');
+            articlesGrid.innerHTML = '';
+            
+            let articlesToShow = articlesData;
+            
+            // Filter articles if searching
+            if (searchQuery) {
+                isSearching = true;
+                const query = searchQuery.toLowerCase();
+                articlesToShow = articlesData.filter(article => {
+                    const title = (article.title[currentLanguage] || article.title.en).toLowerCase();
+                    const desc = (article.description[currentLanguage] || article.description.en).toLowerCase();
+                    const cat = (article.category[currentLanguage] || article.category.en).toLowerCase();
+                    return title.includes(query) || desc.includes(query) || cat.includes(query);
+                });
+                
+                // Show search results message
+                if (articlesToShow.length === 0) {
+                    articlesGrid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <h3>${translations[currentLanguage].noResults}</h3>
+                            <p style="color: #888; margin-top: 10px;">${translations[currentLanguage].searchResults} "${searchQuery}"</p>
+                        </div>
+                    `;
+                    seeAllBtn.style.display = 'none';
+                    return;
+                }
+            } else {
+                isSearching = false;
+                // Limit articles if not showing all
+                if (!showAllArticles) {
+                    articlesToShow = articlesData.slice(0, INITIAL_ARTICLES_COUNT);
+                }
+            }
+            
+            // Show/hide "See All" button
+            if (articlesData.length > INITIAL_ARTICLES_COUNT && !showAllArticles && !searchQuery) {
+                seeAllBtn.style.display = 'inline-block';
+            } else {
+                seeAllBtn.style.display = 'none';
+            }
+            
+            articlesToShow.forEach(article => {
                 const articleCard = document.createElement('article');
                 articleCard.className = 'article-card';
                 
+                const title = article.title[currentLanguage] || article.title.en;
+                const description = article.description[currentLanguage] || article.description.en;
+                const category = article.category[currentLanguage] || article.category.en;
+                
                 articleCard.innerHTML = `
-                    <img src="${article.image}" alt="${article.title}">
+                    <img src="${article.image}" alt="${title}">
                     <div class="article-info">
-                        <span class="category">${article.category}</span>
-                        <h3>${article.title}</h3>
-                        <p>${article.description}</p>
-                        <a href="${article.link}" class="read-more">Read More</a>
+                        <span class="category">${category}</span>
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                        <a href="#" class="read-more" data-article-id="${article.id}">${translations[currentLanguage].readArticle}</a>
                     </div>
                 `;
                 
                 articlesGrid.appendChild(articleCard);
             });
+            
+            // Add click handlers to read-more links
+            document.querySelectorAll('.read-more').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const articleId = parseInt(this.getAttribute('data-article-id'));
+                    showArticle(articleId);
+                });
+            });
         }
 
-        // Load articles when page is ready
-        document.addEventListener('DOMContentLoaded', loadArticles);
+        // Show article in modal
+        function showArticle(articleId) {
+            const article = articlesData.find(a => a.id === articleId);
+            if (!article) return;
+            
+            const modal = document.getElementById('articleModal');
+            const title = article.title[currentLanguage] || article.title.en;
+            const category = article.category[currentLanguage] || article.category.en;
+            const fullContent = article.fullContent[currentLanguage] || article.fullContent.en;
+            
+            document.getElementById('modalArticleImage').src = article.image;
+            document.getElementById('modalArticleImage').alt = title;
+            document.getElementById('modalArticleCategory').textContent = category;
+            document.getElementById('modalArticleTitle').textContent = title;
+            
+            // Format content with proper line breaks
+            const formattedContent = fullContent.replace(/\n/g, '<br><br>');
+            document.getElementById('modalArticleContent').innerHTML = formattedContent;
+            
+            modal.style.display = 'flex';
+        }
+
+        // Close article modal
+        function closeArticleModal() {
+            document.getElementById('articleModal').style.display = 'none';
+        }
+
+        document.getElementById('closeArticleModal').addEventListener('click', closeArticleModal);
+        
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('articleModal');
+            if (e.target === modal) {
+                closeArticleModal();
+            }
+        });
+
+        // Search functionality
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchQuery = searchInput.value.trim();
+            loadArticles(searchQuery);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial language
+            const savedLang = localStorage.getItem('language') || 'ua';
+            currentLanguage = savedLang;
+            document.getElementById('currentLang').textContent = savedLang.toUpperCase();
+            updateLanguage(savedLang);
+            
+            // Search button click
+            document.getElementById('searchBtn').addEventListener('click', performSearch);
+            
+            // Search on Enter key
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Clear search when input is empty
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                if (e.target.value === '') {
+                    loadArticles();
+                }
+            });
+            
+            // See All Posts button
+            document.getElementById('seeAllPostsBtn').addEventListener('click', function() {
+                showAllArticles = true;
+                loadArticles();
+                // Scroll to articles
+                document.getElementById('articlesGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
 
         // Language selector functionality
         const langBtn = document.getElementById('langBtn');
         const langDropdown = document.getElementById('langDropdown');
-        const currentLang = document.getElementById('currentLang');
+        const currentLangDisplay = document.getElementById('currentLang');
 
         langBtn.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -216,10 +408,11 @@
         langLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const lang = this.getAttribute('data-lang').toUpperCase();
-                currentLang.textContent = lang;
+                const lang = this.getAttribute('data-lang');
+                currentLangDisplay.textContent = lang.toUpperCase();
                 langDropdown.classList.remove('show');
                 langBtn.classList.remove('active');
+                updateLanguage(lang);
             });
         });
     </script>
