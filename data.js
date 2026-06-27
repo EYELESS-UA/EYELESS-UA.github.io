@@ -145,7 +145,7 @@ const projectsData = [
     { "id": "SWTFU2",
     "title": "Star Wars: The Force Unleashed II",
     "cover": "assets/SWTFU2.webp",
-    "logo": "assets/SWTFU2_logo.webp",
+    "logo": "assets/SWTFU2_Logo.webp",
     "status": "planned",
     "progress": 0,
     "progress_text": 0,
