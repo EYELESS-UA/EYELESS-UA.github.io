@@ -714,6 +714,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mActions.innerHTML += `<a href="${p.github}" target="_blank" class="btn-action btn-details" style="flex:0 0 auto; padding:0 15px">GitHub</a>`;
         }
 
+        // LKB link
+        if(p.lkb) {
+            mActions.innerHTML += `<a href="${p.lkb}" target="_blank" class="btn-action btn-details" style="flex:0 0 auto; padding:0 15px">LKB</a>`;
+        }
+
         // Основна кнопка
         const btnLabel = (currentLang==='uk'? p.cta.label : (p.cta.label_en || p.cta.label));
         if(p.cta.type !== 'disabled') {
