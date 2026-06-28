@@ -559,7 +559,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (news.category === 'announcement') categoryText = 'Announcement';
             }
 
-            const newsItem = document.createElement('div');
+            const newsItem = document.createElement('button');
+            newsItem.type = 'button';
             newsItem.className = 'news-item';
             newsItem.innerHTML = `
                 <div class="news-date">
@@ -569,10 +570,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="news-title">${title}</h3>
                 <p class="news-summary">${summary}</p>
             `;
+            newsItem.addEventListener('click', () => openNewsModal(news, title, summary, formattedDate, categoryText));
 
             newsGrid.appendChild(newsItem);
         });
     }
+
+    const newsModal = document.getElementById('news-modal');
+    const newsModalTitle = document.getElementById('news-modal-title');
+    const newsModalText = document.getElementById('news-modal-text');
+    const newsModalDate = document.getElementById('news-modal-date');
+
+    function openNewsModal(news, title, summary, formattedDate, categoryText) {
+        if (!newsModal || !newsModalTitle || !newsModalText || !newsModalDate) return;
+
+        const fullText = currentLang === 'uk' ? (news.full_text || news.summary) : (news.full_text_en || news.summary_en || news.summary);
+        newsModalTitle.textContent = title;
+        newsModalText.textContent = fullText;
+        newsModalDate.innerHTML = `<span class="news-category ${news.category}">${categoryText}</span><span>• ${formattedDate}</span>`;
+        newsModal.classList.add('active');
+        newsModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeNewsModal() {
+        if (!newsModal) return;
+        newsModal.classList.remove('active');
+        newsModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelector('.news-modal-close')?.addEventListener('click', closeNewsModal);
+    newsModal?.addEventListener('click', (e) => {
+        if (e.target === newsModal) closeNewsModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && newsModal?.classList.contains('active')) closeNewsModal();
+    });
 
     // Викликаємо рендеринг новин при завантаженні
     renderNews();

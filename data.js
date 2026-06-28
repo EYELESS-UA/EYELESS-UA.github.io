@@ -16,7 +16,7 @@ const projectsData = [
   "label": "Завантажити",
   "label_en": "Download",
   "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3391786639",
-  "primary": true }, "videos": [],
+  "primary": true }, "videos": [ "https://www.youtube.com/watch?v=VzfgLRdyP3g" ],
   "gallery": ["assets/screenshot/Age-of-Wonders-4/screenshot_00.webp",
   "assets/screenshot/Age-of-Wonders-4/screenshot_01.webp",
   "assets/screenshot/Age-of-Wonders-4/screenshot_02.webp",
@@ -202,6 +202,8 @@ const newsData = [
     "title_en": "Age of Wonders 4 — localization almost complete!",
     "summary": "Переклад досяг 97% готовності. Завершуємо останні правки перед релізом.",
     "summary_en": "Translation has reached 97% completion. Finalizing last adjustments before release.",
+    "full_text": "Після тривалого етапу роботи над локалізацією Age of Wonders 4 ми підійшли до фінальної стадії. У проєкті залишилися лише дрібні правки, а також перевірка узгодженості термінології та стилю. Команда вже працює над останніми деталями, щоб реліз вийшов максимально якісним і природним для українського гравця.",
+    "full_text_en": "After a long period of work on the Age of Wonders 4 localization, we have reached the final stage. Only minor edits remain, along with a check for terminology and style consistency. The team is already working on the last details so the release is as polished and natural as possible for Ukrainian players.",
     "category": "progress",
     "project_id": "Age-of-Wonders-4"
   },
@@ -212,6 +214,8 @@ const newsData = [
     "title_en": "The Guild 3 — localization released!",
     "summary": "Повна українська локалізація The Guild 3 тепер доступна в Steam Workshop.",
     "summary_en": "Full Ukrainian localization of The Guild 3 is now available on Steam Workshop.",
+    "full_text": "Локалізація The Guild 3 тепер доступна для завантаження в Steam Workshop. Це стало результатом великої роботи над текстами, діалогами, інтерфейсом і загальною узгодженістю стилю. Ми продовжуємо стежити за реакцією спільноти та зберігаємо відкритість до можливих правок і покращень.",
+    "full_text_en": "The Guild 3 localization is now available for download on Steam Workshop. This result came from extensive work on the texts, dialogues, interface, and overall consistency of style. We continue to monitor community feedback and remain open to possible improvements and refinements.",
     "category": "release",
     "project_id": "The-Guild-3"
   },
@@ -222,6 +226,8 @@ const newsData = [
     "title_en": "Dream Engines: Nomad Cities is ready!",
     "summary": "Завершено роботу над українською локалізацією Dream Engines. Доступно в Steam.",
     "summary_en": "Ukrainian localization of Dream Engines completed. Available on Steam.",
+    "full_text": "Dream Engines: Nomad Cities тепер доступна в українській локалізації. Ми завершили переклад основних текстів, інтерфейсу та ключових елементів, щоб гра відчувалася природно для українського гравця. Це важливий крок для нашої команди і ще один проєкт, який допомагає розширювати український контент у світі ігор.",
+    "full_text_en": "Dream Engines: Nomad Cities is now available in Ukrainian localization. We completed the translation of the main texts, interface, and key elements so the game feels natural for Ukrainian players. This is an important milestone for our team and another project that helps expand Ukrainian content in the gaming world.",
     "category": "release",
     "project_id": "Dream_Engines_Nomad_Cities"
 },
