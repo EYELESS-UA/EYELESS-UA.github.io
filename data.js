@@ -39,7 +39,7 @@ const projectsData = [
     "label_en": "Download",
     "url": "https://github.com/EYELESS-UA/Arx-Libertatis-Ukrainian-localization/releases/download/v1.0.0/Arx.Libertatis-Ukrainian.localization.v1.0.0.zip",
     "primary": true },
-    "videos": [],
+    "videos": [ "https://www.youtube.com/watch?v=KMm22gl2dJo" ],
     "gallery": [] 
   },
 
@@ -59,7 +59,7 @@ const projectsData = [
     "label_en": "Download",
     "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3258925888",
     "primary": true },
-    "videos": [],
+    "videos": ["https://www.youtube.com/watch?v=lE--8CJ5akA"],
     "gallery": ["assets/screenshot/Dream_Engines_Nomad_Cities/screenshot_00.webp",
     "assets/screenshot/Dream_Engines_Nomad_Cities/screenshot_01.webp",
     "assets/screenshot/Dream_Engines_Nomad_Cities/screenshot_02.webp",
@@ -86,7 +86,7 @@ const projectsData = [
     "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3507960492",
     "primary": true },
     "steam": "",
-    "videos": [""],
+    "videos": ["https://www.youtube.com/watch?v=9zLDr6J7qSo"],
     "gallery": [] 
     },
 
@@ -105,7 +105,7 @@ const projectsData = [
     "label_en": "Download",
     "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3391786639",
     "primary": true },
-    "videos": [],
+    "videos": [ "https://www.youtube.com/watch?v=p0xHfIbj6b0" ],
     "gallery": [] 
     },
 
@@ -164,7 +164,7 @@ const projectsData = [
     "label_en": "Download",
     "url": "https://github.com/EYELESS-UA/SWTFU2-Ukrainian-localization",
     "primary": true },
-    "videos": [],
+    "videos": [ "https://www.youtube.com/watch?v=2h8HAT4tLyU" ],
     "gallery": ["assets/screenshot/SWTFU2/screenshot_00.png", "assets/screenshot/SWTFU2/screenshot_01.png", "assets/screenshot/SWTFU2/screenshot_02.png", "assets/screenshot/SWTFU2/screenshot_03.png"] 
     },
 
