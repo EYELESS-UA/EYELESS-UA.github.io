@@ -258,5 +258,6 @@ const newsData = [
     const mySites = [
         { name: "Moonscars Wiki", icon: "🌙", url: "mysite/Moonscars Wiki/index.html" },
         { name: "Dice & Bones", icon: "🌙", url: "mysite/Dice & Bones/index.html" },
+        { name: "Dice & Bones", icon: "🌙", url: "mysite/Obsidian Test/index.html" },
         { name: "GitHub", icon: "💻", url: "https://github.com/EYELESS-UA" }
     ];
