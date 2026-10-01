@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DND Wiki</title>
+    <meta name="description" content="Статичний сайт-вікі для Dungeons & Dragons українською мовою" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <a class="brand" href="#">DND Wiki</a>
+        <div class="nav-links">
+          <a href="#articles">Статті</a>
+          <a href="#guides">Путівники</a>
+          <a href="#about">Про проект</a>
+        </div>
+      </nav>
+
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow">Нова епоха пригод</p>
+          <h1>Ваша персональна енциклопедія для Dungeons & Dragons</h1>
+          <p class="hero-text">
+            Досліджуйте раси, класи, закляття та правила в одному місці — з
+            простим пошуком та зручним навігаційним меню.
+          </p>
+          <a class="btn btn-primary" href="#articles">Переглянути розділи</a>
+        </div>
+
+        <div class="hero-card">
+          <h2>Сьогодні в центрі уваги</h2>
+          <ul>
+            <li>Невмирущі раси та їхні риси</li>
+            <li>Класи для новачків і ветеранів</li>
+            <li>Базові заклинання для першого рівня</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-section container">
+        <label class="search-label" for="search">Швидкий пошук</label>
+        <input id="search" type="text" placeholder="Пошук статті, раси або класу..." />
+      </section>
+
+      <section id="articles" class="container cards-section">
+        <div class="section-title">
+          <p class="eyebrow">Основні розділи</p>
+          <h2>Оберіть тему для подорожі</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="card" data-tags="раси, створення персонажа">
+            <h3>Раси</h3>
+            <p>Ознайомтеся з людськими, ельфійськими, дворфійськими та іншими расами.</p>
+            <a href="#">Читати далі</a>
+          </article>
+
+          <article class="card" data-tags="класи, бойові стилі">
+            <h3>Класи</h3>
+            <p>Вибирайте свої шляхетні або темні ролі: воїн, маг, розбійник та інші.</p>
+            <a href="#">Читати далі</a>
+          </article>
+
+          <article class="card" data-tags="закляття, магія">
+            <h3>Закляття</h3>
+            <p>Дізнайтеся про базові та сильні заклинання для кожного рівня.</p>
+            <a href="#">Читати далі</a>
+          </article>
+
+          <article class="card" data-tags="правила, світи, кампанії">
+            <h3>Правила</h3>
+            <p>Пориньте в основні механіки, перевірки, бої та взаємодію з світом.</p>
+            <a href="#">Читати далі</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="guides" class="container guides-section">
+        <div class="section-title">
+          <p class="eyebrow">Путівники</p>
+          <h2>Що варто знати новачкові</h2>
+        </div>
+
+        <div class="guide-list">
+          <div class="guide-item">
+            <h3>Початок пригоди</h3>
+            <p>Складіть свого героя, оберіть расу й клас, а потім вивчіть базові правила.</p>
+          </div>
+          <div class="guide-item">
+            <h3>Поради для Мастера</h3>
+            <p>Створюйте цікаві місії, драматичні ситуації й динамічні бої без перевантаження.</p>
+          </div>
+          <div class="guide-item">
+            <h3>Творчі ідеї для кампанії</h3>
+            <p>Мандрівка по руїнах, політичні інтриги або загадковий ліс — вибір за вами.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="about" class="footer">
+      <div class="container footer-content">
+        <p>© 2026 DND Wiki. Статичний сайт для любителів пригод.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
