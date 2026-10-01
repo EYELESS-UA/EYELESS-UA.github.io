@@ -612,13 +612,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // Викликаємо рендеринг новин при завантаженні
     renderNews();
 
+    const renderTopDonors = () => {
+        const totalRaised = document.getElementById('total-raised');
+        const total = Array.isArray(DonorsRaised)
+            ? DonorsRaised.reduce((sum, donor) => {
+                const amount = String(donor.amount || '').replace(/[^\d]/g, '');
+                return sum + Number(amount || 0);
+            }, 0)
+            : 0;
+
+        if (totalRaised) {
+            totalRaised.textContent = `Зібрано: ${new Intl.NumberFormat('uk-UA').format(total)} ₴`;
+        }
+
+        const topDonors = document.getElementById('top-donors');
+        if (!topDonors || !Array.isArray(benefactorsList)) return;
+
+        topDonors.innerHTML = '';
+        benefactorsList.slice(0, 5).forEach((donor, index) => {
+            const row = document.createElement('div');
+            row.className = 'donor-row';
+            const rank = String(index + 1).padStart(2, '0');
+            row.innerHTML = `
+                <div class="donor-rank">${rank}</div>
+                <div class="donor-name">${donor.name}</div>
+                <div class="donor-amount">${donor.amount}</div>
+            `;
+            topDonors.appendChild(row);
+        });
+    };
+
+    renderTopDonors();
+
     const bList = document.getElementById('benefactors-list');
-    benefactorsList.forEach(b => {
-        const sp = document.createElement('span');
-        sp.className = `b-tag ${b.type||''}`;
-        sp.innerText = (b.type==='gold'?'👑 ':b.type==='green'?'💚 ':b.type==='flamingo'?'🦩 ':'') + b.name;
-        bList.appendChild(sp);
-    });
+    if (bList && Array.isArray(benefactorsList)) {
+        benefactorsList.forEach(b => {
+            const sp = document.createElement('span');
+            sp.className = `b-tag ${b.type||''}`;
+            sp.innerText = (b.type==='gold'?'👑 ':b.type==='green'?'💚 ':b.type==='flamingo'?'🦩 ':'') + b.name;
+            bList.appendChild(sp);
+        });
+    }
 
     // МОДАЛЬНЕ ВІКНО (ВИПРАВЛЕНО)
     const modal = document.getElementById('modal');
