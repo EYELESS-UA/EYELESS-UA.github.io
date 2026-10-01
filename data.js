@@ -188,12 +188,19 @@ const projectsData = [
 //    },
 ];
 
-// ДАНІ ДОБРОЧИНЦІВ
-const benefactorsList = [
-
-
-  
+// ДАНІ ДОБРОЧИНЦІВ 😺😻😸
+const DonorsRaised = [
+ { amount: '300 ₴' }
 ];
+
+
+const benefactorsList = [
+  { name: 'Павло Х.', amount: '100 ₴' },
+  { name: '😺', amount: '100 ₴' },
+  { name: '😺', amount: '80 ₴' },
+  { name: 'Костя К.', amount: '20 ₴' }
+];
+
 // ДАНІ НОВИН
 const newsData = [
   {
