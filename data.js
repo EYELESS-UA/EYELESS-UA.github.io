@@ -28,7 +28,6 @@ window.RAVEN_GAMES = [
     links: [
       { label: "LBK Launcher", url: "https://lbklauncher.com/games/the_guild_3/eyeless" },
       { label: "Steam", url: "https://store.steampowered.com/app/311260/The_Guild_3/" },
-      { label: "Підтримати", url: "https://send.monobank.ua/jar/2jcizRNGLp" },
       { label: "GITHUB", url: "https://github.com/EYELESS-UA/The-Guild-3-Ukrainian-Localization" }
     ]
   },
@@ -53,14 +52,29 @@ window.RAVEN_GAMES = [
     cardTitle: "Age of Wonders 4",
     genres: "STRATEGY · RTB",
     status: "У розробці",
-    progress: 5,
+    progress: 97,
     cover: "https://cdn2.steamgriddb.com/grid/b4892e6b150b7a93bd9ec219e7084dfc.png",
     description: "Age of Wonders 4 — це покрокова 4X-стратегія в жанрі фентезі, у якій гравці протистоять могутнім Повелителям (Wizard Kings), що повернулися, аби підкорити собі різноманітні світи. Ви створите власний унікальний народ, комбінуючи фізичні форми, культурні риси та магічні фоліанти, та проведете його через масштабні експансії й тактичні битви. Головною особливістю гри є неймовірна свобода кастомізації фракцій, глибока система процедурної генерації світів та Пантеон, що дозволяє вашим створеним правителям з'являтися в наступних кампаніях.",
-    version: "Попереднє дослідження",
+    version: "У розробці",
     year: "2023",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "",
     installation: [""]
+    progressDetails: {
+      editing: 37,
+      fonts: 100,
+      artwork: null
+    },
+    workVolume: {
+      totalLines: 0,
+      translatedLines: 0,
+      words: 0
+    },
+    links: [
+      { label: "LBK Launcher", url: "https://lbklauncher.com/games/age_of_wonders_4/eyeless" },
+      { label: "Steam", url: "https://store.steampowered.com/app/1669000/Age_of_Wonders_4/" },
+      { label: "GITHUB", url: "https://github.com/EYELESS-UA/Age-of-Wonders-4-Ukrainian-localization" }
+    ]
   },
   {
     slug: "star_wars_the_force_unleashed_2",
@@ -86,7 +100,7 @@ window.RAVEN_GAMES = [
     progress: 5,
     cover: "https://cdn2.steamgriddb.com/grid/a49b51f65f272f1c7eeda5d3f09eb536.png",
     description: "Mark of the Ninja Remastered — це стильний двовимірний стелс-платформер, у якому ви граєте за ніндзя, чий стародавній клан опинився під загрозою знищення з боку високотехнологічної корпорації. Отримавши магічні татуювання, які дарують надлюдські здібності в обмін на поступову втрату розуму, герой вирушає на небезпечну місію задля порятунку своїх побратимів. Гра пропонує еталонну механіку прихованості з можливістю повного пацифістського проходження.",
-    version: "Попереднє дослідження",
+    version: "У розробці",
     year: "2018",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "",
@@ -127,11 +141,11 @@ window.RAVEN_GAMES = [
     title: "Feed the AI",
     cardTitle: "Feed the AI",
     genres: "STRATEGY · RTB",
-    status: "У планах",
-    progress: 5,
+    status: "Готово",
+    progress: 100,
     cover: "https://cdn2.steamgriddb.com/grid/5295fbf9e69170eb5b8165013ee1afc7.png",
     description: "FEED THE AI — це напружений симулятор-головоломка, у якому ви граєте за оператора, змушеного постійно постачати різноманітні дані та ресурси ненаситному штучному інтелекту, що невпинно еволюціонує. Балансуючи між жорсткими вимогами машини та власним виживанням, вам доведеться приймати складні моральні рішення, обираючи, чим саме пожертвувати заради подальшого розвитку цієї сутності. Головною особливістю гри є похмура атмосфера, стресовий менеджмент ресурсів в умовах обмеженого часу та варіативність сюжету, який повністю залежить від того, чим саме ви «годуєте» ШІ.",
-    version: "Попереднє дослідження",
+    version: "Готово",
     year: "2026",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
