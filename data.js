@@ -59,7 +59,7 @@ window.RAVEN_GAMES = [
     year: "2023",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "",
-    installation: [""]
+    installation: [""],
     progressDetails: {
       editing: 37,
       fonts: 100,
