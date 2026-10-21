@@ -198,7 +198,7 @@ window.RAVEN_GAMES = [
   },
 ];
 
-window.RAVEN_TOP_DONORS = [ { name: "😺", amount: 200 },{ name: "Павло Х.", amount: 100 },{ name: "😺", amount: 100 },{ name: "😺", amount: 80 },{ name: "Костя К.", amount: 20 }];
+window.RAVEN_TOP_DONORS = [ { name: "Олександр М.", amount: 325 },{ name: "Павло Х.", amount: 100 },{ name: "😺", amount: 100 },{ name: "😺", amount: 80 },{ name: "Костя К.", amount: 20 }];
 
 window.RAVEN_NEWS = [
   {
