@@ -44,7 +44,15 @@ window.RAVEN_GAMES = [
     year: "2010",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [""]
+    installation: [""],
+    progressDetails: {
+      editing: null,
+      fonts: null,
+      artwork: null
+    },
+    links: [
+      { label: "Steam", url: "https://store.steampowered.com/app/39680/The_Guild_II_Renaissance/" }
+    ]
   },
   {
     slug: "Age_of_Wonders_4",
@@ -84,7 +92,15 @@ window.RAVEN_GAMES = [
     year: "2010",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: []
+    installation: [],
+    progressDetails: {
+      editing: null,
+      fonts: null,
+      artwork: null
+    },
+    links: [
+      { label: "Steam", url: "https://store.steampowered.com/app/32500/STAR_WARS_The_Force_Unleashed_II/?l=ukrainian" }
+    ]
   },
   {
     slug: "Mark_of_the_Ninja_Remastered",
@@ -99,7 +115,17 @@ window.RAVEN_GAMES = [
     year: "2018",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "",
-    installation: []
+    installation: [],
+    progressDetails: {
+      editing: null,
+      fonts: null,
+      artwork: null
+    },
+    links: [
+      { label: "LBK Launcher", url: "https://lbklauncher.com/games/mark_of_the_ninja_remastered/eyeless" },
+      { label: "Steam", url: "https://store.steampowered.com/app/860950/Mark_of_the_Ninja_Remastered/?l=ukrainian" },
+      { label: "GITHUB", url: "https://github.com/EYELESS-UA/Mark-of-the-Ninja-Remastered-Ukrainian-localization" }
+    ]
   },
   {
     slug: "Prototype_2",
@@ -114,7 +140,15 @@ window.RAVEN_GAMES = [
     year: "2012",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: []
+    installation: [],
+    progressDetails: {
+      editing: null,
+      fonts: null,
+      artwork: null
+    },
+    links: [
+      { label: "Steam", url: "https://store.steampowered.com/app/115320/Prototype_2/?l=ukrainian" }
+    ]
   },
   {
     slug: "Prototype",
@@ -129,7 +163,15 @@ window.RAVEN_GAMES = [
     year: "2009",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: []
+    installation: [],
+    progressDetails: {
+      editing: null,
+      fonts: null,
+      artwork: null
+    },
+    links: [
+      { label: "Steam", url: "https://store.steampowered.com/app/10150/Prototype/?l=ukrainian" }
+    ]
   },
   {
     slug: "feed_the_ai",
@@ -144,11 +186,19 @@ window.RAVEN_GAMES = [
     year: "2026",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: []
+    installation: [],
+    progressDetails: {
+      editing: null,
+      fonts: null,
+      artwork: null
+    },
+    links: [
+      { label: "Steam", url: "https://store.steampowered.com/app/4486870/FEED_THE_AI/" }
+    ]
   },
 ];
 
-window.RAVEN_TOP_DONORS = [ { name: "Павло Х.", amount: 100 },{ name: "😺", amount: 100 },{ name: "😺", amount: 80 },{ name: "Костя К.", amount: 20 }];
+window.RAVEN_TOP_DONORS = [ { name: "😺", amount: 200 },{ name: "Павло Х.", amount: 100 },{ name: "😺", amount: 100 },{ name: "😺", amount: 80 },{ name: "Костя К.", amount: 20 }];
 
 window.RAVEN_NEWS = [
   {
