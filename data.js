@@ -21,8 +21,8 @@ window.RAVEN_GAMES = [
       artwork: null
     },
     workVolume: {
-      totalLines: 1465,
-      translatedLines: 14365,
+      totalLines: 11555,
+      translatedLines: 11555,
       words: 143265
     },
     links: [
