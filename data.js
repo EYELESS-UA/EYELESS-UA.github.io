@@ -14,7 +14,13 @@ window.RAVEN_GAMES = [
     year: "2017",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [""],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Як встановити",
+      intro: "Локалізація готова. Інструкція зі встановлення надається разом із файлами перекладу.",
+      steps: [],
+      note: "Перевірте офіційні канали команди, щоб знайти посилання на завантаження та актуальні інструкції."
+    },
     progressDetails: {
       editing: 90,
       fonts: 100,
@@ -44,7 +50,13 @@ window.RAVEN_GAMES = [
     year: "2010",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [""],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Стежте за оновленнями",
+      intro: "Українська локалізація цієї гри ще не опублікована.",
+      steps: [],
+      note: "Стежте за оновленнями Raven Team, щоб дізнатися про початок робіт над перекладом."
+    },
     progressDetails: {
       editing: null,
       fonts: null,
@@ -66,8 +78,18 @@ window.RAVEN_GAMES = [
     version: "3.5.0",
     year: "2023",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
-    projectNote: "",
-    installation: [""],
+    projectNote: "Основний обсяг перекладу виконано, шрифти підготовлено. Наразі триває редактура текстів; після її завершення перевіримо локалізацію в грі та підготуємо її до релізу.",
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Встановлення перекладу",
+      intro: "Переклад ще не опублікований. Після його виходу скористайтеся такою інструкцією:",
+      steps: [
+        "Встановіть LBK Launcher і відкрийте в ньому сторінку Age of Wonders 4.",
+        "Знайдіть українську локалізацію від EYELESS та скористайтеся кнопкою встановлення.",
+        "Після завершення встановлення запустіть гру й перевірте, чи застосовано українську локалізацію."
+      ],
+      note: "Інструкція може змінитися до релізу. Стежте за оновленнями Raven Team."
+    },
     progressDetails: {
       editing: 37,
       fonts: 100,
@@ -92,7 +114,13 @@ window.RAVEN_GAMES = [
     year: "2010",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Стан проєкту",
+      intro: "Роботи над українською локалізацією наразі призупинені.",
+      steps: [],
+      note: "Якщо статус проєкту зміниться, ми повідомимо про це на сторінках Raven Team."
+    },
     progressDetails: {
       editing: null,
       fonts: null,
@@ -115,7 +143,13 @@ window.RAVEN_GAMES = [
     year: "2018",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "",
-    installation: [],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Стежте за оновленнями",
+      intro: "Українська локалізація ще не опублікована. Інструкція зі встановлення з’явиться після релізу перекладу.",
+      steps: [],
+      note: "Стежте за оновленнями проєкту на сторінках Raven Team."
+    },
     progressDetails: {
       editing: null,
       fonts: null,
@@ -140,7 +174,13 @@ window.RAVEN_GAMES = [
     year: "2012",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Стан проєкту",
+      intro: "Роботи над українською локалізацією наразі призупинені.",
+      steps: [],
+      note: "Якщо статус проєкту зміниться, ми повідомимо про це на сторінках Raven Team."
+    },
     progressDetails: {
       editing: null,
       fonts: null,
@@ -163,7 +203,13 @@ window.RAVEN_GAMES = [
     year: "2009",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Стежте за оновленнями",
+      intro: "Українська локалізація ще не опублікована. Інструкція зі встановлення з’явиться після релізу перекладу.",
+      steps: [],
+      note: "Стежте за оновленнями проєкту на сторінках Raven Team."
+    },
     progressDetails: {
       editing: null,
       fonts: null,
@@ -186,7 +232,13 @@ window.RAVEN_GAMES = [
     year: "2026",
     platforms: "PC · PlayStation · Xbox · Nintendo Switch",
     projectNote: "Проєкт на етапі попереднього дослідження. Статус і плани можуть змінитися — стежте за оновленнями.",
-    installation: [],
+    installation: {
+      label: "03 / КРОК ЗА КРОКОМ",
+      title: "Як встановити",
+      intro: "Локалізація готова. Інструкція зі встановлення надається разом із файлами перекладу.",
+      steps: [],
+      note: "Перевірте офіційні канали команди, щоб знайти посилання на завантаження та актуальні інструкції."
+    },
     progressDetails: {
       editing: null,
       fonts: null,
