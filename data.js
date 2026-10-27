@@ -95,6 +95,10 @@ window.RAVEN_GAMES = [
       fonts: 100,
       artwork: null
     },
+    workVolume: {
+      totalLines: 48650,
+      words: 444806
+    },
     links: [
       { label: "LBK Launcher", url: "https://lbklauncher.com/games/age_of_wonders_4/eyeless" },
       { label: "Steam", url: "https://store.steampowered.com/app/1669000/Age_of_Wonders_4/" },
