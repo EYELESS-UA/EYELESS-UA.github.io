@@ -49,20 +49,21 @@ if (!game) {
 
   const progressDetails = game.progressDetails || {};
   const progressStages = [
-    { key: "translation", label: "Переклад", value: progress },
+    { key: "translation", label: "Переклад", value: game.progress },
     { key: "editing", label: "Редактура" },
     { key: "fonts", label: "Шрифти" },
     { key: "artwork", label: "Малювання" }
-  ];
+  ].flatMap((stage) => {
+    const stageValue = stage.value ?? progressDetails[stage.key];
+    if (stageValue === null || stageValue === undefined || stageValue === "" || !Number.isFinite(Number(stageValue))) return [];
+    return [{ ...stage, percent: Math.max(0, Math.min(100, Number(stageValue))) }];
+  });
   document.querySelector("#localization-progress").innerHTML = progressStages.map((stage) => {
-    const stageValue = stage.value ?? progressDetails[stage.key] ?? null;
-    const hasProgress = Number.isFinite(Number(stageValue)) && stageValue !== null;
-    const percent = hasProgress ? Math.max(0, Math.min(100, Number(stageValue))) : null;
-    const label = hasProgress ? `${percent}%` : "Не розпочато";
+    const { percent } = stage;
     return `
       <div class="localization-stage">
-        <div class="localization-stage-heading"><span>${escapeHTML(stage.label)}</span><strong class="${percent === 100 ? "stage-complete" : ""}">${label}</strong></div>
-        <div class="progress-track"><span class="${percent === 100 ? "stage-complete" : ""}" style="width:${percent ?? 0}%"></span></div>
+        <div class="localization-stage-heading"><span>${escapeHTML(stage.label)}</span><strong class="${percent === 100 ? "stage-complete" : ""}">${percent}%</strong></div>
+        <div class="progress-track"><span class="${percent === 100 ? "stage-complete" : ""}" style="width:${percent}%"></span></div>
       </div>
     `;
   }).join("");
@@ -136,24 +137,20 @@ if (!game) {
     <div><span>${escapeHTML(label)}</span><strong>${escapeHTML(value)}</strong></div>
   `).join("");
 
+  const installation = game.installation;
+  document.querySelector("#installation-label").textContent = installation.label;
+  document.querySelector("#installation-title").textContent = installation.title;
   const installationContent = document.querySelector("#installation-content");
-  const installationSteps = Array.isArray(game.installation)
-    ? game.installation.filter((step) => typeof step === "string" && step.trim())
+  const installationSteps = Array.isArray(installation.steps)
+    ? installation.steps.filter((step) => typeof step === "string" && step.trim())
     : [];
-  if (ready && installationSteps.length > 0) {
-    installationContent.innerHTML = `
-      <p class="installation-intro">Локалізація готова. Скористайтеся інструкцією, що надається разом із файлами перекладу:</p>
-      <ol class="installation-steps">${installationSteps.map((step) => `<li>${escapeHTML(step)}</li>`).join("")}</ol>
-      <p class="installation-note">Посилання на завантаження та детальні кроки встановлення публікуються в офіційних каналах команди.</p>
-    `;
-  } else {
-    document.querySelector("#installation-title").innerHTML = ready
-      ? 'Інформація про <span>встановлення</span>'
-      : 'Стежте за <span>оновленнями</span>';
-    installationContent.innerHTML = ready
-      ? '<p class="installation-intro">Інструкція зі встановлення з’явиться тут після публікації файлів перекладу. Перевірте офіційні канали команди.</p>'
-      : '<p class="installation-intro">Переклад ще не опублікований. Підпишіться на оновлення Raven Team, щоб дізнатися про реліз.</p>';
-  }
+  installationContent.innerHTML = `
+    ${installation.intro ? `<p class="installation-intro">${escapeHTML(installation.intro)}</p>` : ""}
+    ${installationSteps.length > 0
+      ? `<ol class="installation-steps">${installationSteps.map((step) => `<li>${escapeHTML(step)}</li>`).join("")}</ol>`
+      : ""}
+    ${installation.note ? `<p class="installation-note">${escapeHTML(installation.note)}</p>` : ""}
+  `;
 
   const relatedGames = games.filter((item) => item.slug !== game.slug).slice(0, 4);
   document.querySelector("#related-games").innerHTML = relatedGames.map((item) => {
